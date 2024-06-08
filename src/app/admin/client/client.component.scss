@@ -1,0 +1,141 @@
+.leaflet-control-layers-base label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Remplacez "Votre Police" par le nom de la police que vous souhaitez utiliser */
+    font-size: 14px; /* Taille de la police */
+    font-weight: bold; /* Gras ou normal */
+    color: #944c4c; /* Couleur du texte (rouge dans cet exemple) */
+    /* Autres styles de police personnalisés */
+}
+
+.map-legend {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    border: 2px solid black; /* Bordure noire pour encadrer la légende */
+    padding: 10px; /* Espacement interne pour la bordure */
+    display: inline-block; /* Ajuste la largeur en fonction du contenu */
+  
+  }
+  
+  .legend-section {
+    margin-bottom: 15px;
+  }
+  
+  .legend-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .red  {
+    width: 30px; /* Carré pour Chef-lieu de district */
+    height: 30px; /* Carré pour Chef-lieu de district */
+    margin-right: 10px;
+    background-color: black;
+  }
+  
+  .blue  {
+    width: 20px; /* Petit carré pour Chef-lieu de région */
+    height: 20px; /* Petit carré pour Chef-lieu de région */
+    margin-right: 20px;
+    background-color: black;
+  }
+  
+  .green  {
+    width: 15px; /* Cercle pour Chef-lieu de département */
+    height: 15px; /* Cercle pour Chef-lieu de département */
+    margin-right: 25px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  
+  .orange  {
+    
+    width: 5px; /* Premier point pour Chef-lieu de sous-préfecture */
+    height: 5px; /* Premier point pour Chef-lieu de sous-préfecture */
+    margin-right: 30px;
+    background-color: black;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+  
+  .yellow  {
+    content: ' ';
+    width: 3px; /* Deuxième point pour Village */
+    height: 3px; /* Deuxième point pour Village */
+    margin-right: 33px;
+    background-color: black;
+    border-radius: 50%;
+    margin-left: 5px;
+  }
+  
+  .water {
+    width: 100px;
+    height: 2px;
+    background-color: lightblue;
+    margin-right: 10px;
+  }
+  .beer {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, lightblue, transparent); /* Dégradé */
+    margin-right: 10px;
+  }
+  
+  .soda {
+    width: 100px;
+    height: 2px;
+    background: repeating-linear-gradient(to right, lightblue, lightblue 10%, transparent 10%, transparent 20%); /* Tirets pour le dernier élément */
+    margin-right: 10px;
+  }
+  
+  
+  .park {
+    width: 20px;
+    height: 10px;
+    border: 2px solid rgb(144, 182, 238); /* Bordure verte claire pour les forêts */
+    margin-right: 10px;
+    background: none; /* Pas de remplissage */
+  }
+  
+  .forest {
+    width: 20px;
+    height: 10px;
+    border: 2px solid lightgreen; /* Bordure verte claire pour les forêts */
+    margin-right: 10px;
+    background: none; /* Pas de remplissage */
+  }
+  .departments {
+    width: 20px;
+    height: 10px;
+    border: 2px solid red; /* Bordure rouge pour les départements */
+    margin-right: 10px;
+    background: none; /* Pas de remplissage */
+  }
+  .low-risk {
+    width: 20px;
+    height: 10px;
+    background-color: lightpink; /* Rose clair pour faible */
+    margin-right: 10px;
+  }
+  
+  .medium-risk {
+    width: 20px;
+    height: 10px;
+    background-color: #ff69b4; /* Rose foncé pour moyen */
+    margin-right: 10px;
+  }
+  
+  .high-risk {
+    width: 20px;
+    height: 10px;
+    background-color: rgb(255, 72, 0); /* Orange pour fort */
+    margin-right: 10px;
+  }
+
+  /* Styles pour le contrôle personnalisé */
+

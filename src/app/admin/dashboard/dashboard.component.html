@@ -1,0 +1,438 @@
+<div class="container-xxl flex-grow-1 container-p-y">
+  <div class="row">
+    <!--<div class="card mb-4">
+      <h5 class="card-header">Dashboard</h5>
+      <div class="card-body">
+        <div class="row gy-3">
+          
+          <div class="col-lg-4 col-md-6">
+            <div class="mt-3">
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasStart"
+                aria-controls="offcanvasStart">
+                Legend
+              </button>
+              <div
+                class="offcanvas offcanvas-start"
+                tabindex="-1"
+                id="offcanvasStart"
+                aria-labelledby="offcanvasStartLabel">
+                <div class="offcanvas-header">
+                  <h5 id="offcanvasStartLabel" class="offcanvas-title">Legend</h5>
+                  <button
+                    type="button"
+                    class="btn-close text-reset"
+                    data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body my-auto mx-0 flex-grow-0">
+                  
+                   <div class="row mb-5">
+                    <div class="col-md-6 col-lg-4 mb-3">
+                      <div class="card h-100" style="width: 350px;">
+                        <div class="card-body">
+                          <div class="map-legend">
+                            <div class="legend-section">
+                              <div class="legend-title">LOCALITE</div>
+                              <div class="legend-item">
+                                <div class="legend-color red"></div>
+                                <div class="legend-label">CHEF-LIEU DE DISTRICT</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color blue"></div>
+                                <div class="legend-label">CHEF-LIEU DE REGION</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color green"></div>
+                                <div class="legend-label">CHEF-LIEU DE DEPARTEMENT</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color orange"></div>
+                                <div class="legend-label">CHEF-LIEU DE SOUS-PREFECTURE</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color yellow"></div>
+                                <div class="legend-label">VILLAGE</div>
+                              </div>
+                            </div>
+                            <div class="legend-section">
+                              <div class="legend-title">HYDROGRAPHIE</div>
+                              <div class="legend-item">
+                                <div class="legend-color water"></div>
+                                <div class="legend-label">FLEUVE</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color beer"></div>
+                                <div class="legend-label">RIVIERE MAJEURE</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color soda"></div>
+                                <div class="legend-label">RIVIERE MINEURE</div>
+                              </div>
+                            </div>
+                            <div class="legend-section">
+                              <div class="legend-title">FORETS CLASSEES ET PARCS</div>
+                              <div class="legend-item">
+                                <div class="legend-color forest"></div>
+                                <div class="legend-label">FORET CLASSEE</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color park"></div>
+                                <div class="legend-label">PARC/RESERVE</div>
+                              </div>
+                            </div>
+                            <div class="legend-section">
+                              <div class="legend-title">LIMITES ADMINISTRATIVES</div>
+                              <div class="legend-item">
+                                <div class="legend-color departments"></div>
+                                <div class="legend-label">DEPARTEMENTS</div>
+                              </div>
+                            </div>
+                            <div class="legend-section">
+                              <div class="legend-title">INDICE DE RISQUE ZOONOTIQUE</div>
+                              <div class="legend-item">
+                                <div class="legend-color low-risk"></div>
+                                <div class="legend-label">FAIBLE</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color medium-risk"></div>
+                                <div class="legend-label">MOYEN</div>
+                              </div>
+                              <div class="legend-item">
+                                <div class="legend-color high-risk"></div>
+                                <div class="legend-label">FORT</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+
+         
+         <div class="col-lg-4 col-md-6">
+          <div class="mt-3">
+            <button
+               type="button"
+               class="btn btn-primary"
+              (click)="openModal()">
+               Table Attr
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>-->
+    <div class="col-sm-12 col-lg-12 mb-4">
+      <div class="card-border-shadow-info h-80">
+        <div class="card-body">
+          <div id="map" style="height: 100vh; width: 100%;"></div>
+        </div>
+      </div>
+    </div>
+
+     <!-- Real customers reviews: Start -->
+     <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
+      <div class="container">
+        <h6 class="text-center fw-semibold d-flex justify-content-center align-items-center mb-4">
+          <img
+            src="../../assets/img/front-pages/icons/section-tilte-icon.png"
+            alt="section title icon"
+            class="me-2" />
+          <span class="text-uppercase">Nos Partenaires</span>
+        </h6>
+        <h3 class="text-center mb-2"><span class="fw-bold">des acteurs clés de notre réussite,</span> jouent un rôle essentiel dans notre parcours</h3>
+        <p class="text-center fw-medium mb-3 mb-md-5">Leur expertise, leur engagement et leur soutien constant sont les piliers de notre travail. Nous sommes fiers de collaborer avec ces partenaires de confiance, qui partagent notre vision et notre passion. Découvrez qui ils sont et comment ils contribuent à notre succès.</p>
+      </div>
+    
+      <hr class="m-0" />
+      <div class="container">
+        <div class="swiper-logo-carousel py-4 my-lg-2">
+          <div class="swiper" id="swiper-clients-logos">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  src="../../assets/img/front-pages/branding/2.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/2.png"
+                  data-app-dark-img="front-pages/branding/2.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/3.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/3.png"
+                  data-app-dark-img="front-pages/branding/3.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/4.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/4.png"
+                  data-app-dark-img="front-pages/branding/4.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/5.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/5.png"
+                  data-app-dark-img="front-pages/branding/5.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/6.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/6.png"
+                  data-app-dark-img="front-pages/branding/6.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/7.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/7.png"
+                  data-app-dark-img="front-pages/branding/7.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/8.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/8.png"
+                  data-app-dark-img="front-pages/branding/8.png" />
+
+                  <img
+                  src="../../assets/img/front-pages/branding/9.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/9.png"
+                  data-app-dark-img="front-pages/branding/9.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/10.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/10.png"
+                  data-app-dark-img="front-pages/branding/10.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/11.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/11.png"
+                  data-app-dark-img="front-pages/branding/11.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/12.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/12.png"
+                  data-app-dark-img="front-pages/branding/12.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/13.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/13.png"
+                  data-app-dark-img="front-pages/branding/13.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/14.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/14.png"
+                  data-app-dark-img="front-pages/branding/14.png" />
+                  <img
+                  src="../../assets/img/front-pages/branding/15.png"
+                  alt="client logo"
+                  class="client-logo"
+                  width="200px"
+                  height="200px"
+                  data-app-light-img="front-pages/branding/15.png"
+                  data-app-dark-img="front-pages/branding/15.png" />
+              </div>
+         
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Real customers reviews: End -->
+
+  </div>
+</div><br><br><br><br>
+
+<!-- Pricing Modal -->
+<div class="modal fade" id="pricingModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-simple modal-pricing">
+    <div class="modal-content p-2 p-md-5">
+      <div class="modal-body py-3 py-md-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <!-- Pricing Plans -->
+        <div class="pb-3 rounded-top">
+          <h3 class="text-center mb-2">Table Attributaire</h3>
+          <p class="text-center pt-1 mb-0">
+            All plans include 40+ advanced tools and features to boost your product. Choose the best plan
+            to fit your needs.
+          </p>
+          
+
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <!-- Card Border Shadow -->
+            <div class="row">
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="card card-border-shadow-primary h-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center mb-2 pb-1">
+                      <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-primary"
+                          ><i class="mdi mdi-bus-school mdi-20px"></i
+                        ></span>
+                      </div>
+                      <h4 class="ms-1 mb-0 display-6">42</h4>
+                    </div>
+                    <p class="mb-0 text-heading">On route vehicles</p>
+                    <p class="mb-0">
+                      <span class="me-1">+18.2%</span>
+                      <small class="text-muted">than last week</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="card card-border-shadow-warning h-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center mb-2 pb-1">
+                      <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-warning">
+                          <i class="mdi mdi-alert mdi-20px"></i
+                        ></span>
+                      </div>
+                      <h4 class="ms-1 mb-0 display-6">8</h4>
+                    </div>
+                    <p class="mb-0 text-heading">Vehicles with errors</p>
+                    <p class="mb-0">
+                      <span class="me-1">-8.7%</span>
+                      <small class="text-muted">than last week</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="card card-border-shadow-danger h-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center mb-2 pb-1">
+                      <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-danger">
+                          <i class="mdi mdi-source-fork mdi-20px"></i>
+                        </span>
+                      </div>
+                      <h4 class="ms-1 mb-0 display-6">27</h4>
+                    </div>
+                    <p class="mb-0 text-heading">Deviated from route</p>
+                    <p class="mb-0">
+                      <span class="me-1">+4.3%</span>
+                      <small class="text-muted">than last week</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-lg-3 mb-4">
+                <div class="card card-border-shadow-info h-100">
+                  <div class="card-body">
+                    <div class="d-flex align-items-center mb-2 pb-1">
+                      <div class="avatar me-2">
+                        <span class="avatar-initial rounded bg-label-info"
+                          ><i class="mdi mdi-timer-outline mdi-20px"></i
+                        ></span>
+                      </div>
+                      <h4 class="ms-1 mb-0 display-6">13</h4>
+                    </div>
+                    <p class="mb-0 text-heading">Late vehicles</p>
+                    <p class="mb-0">
+                      <span class="me-1">-2.5%</span>
+                      <small class="text-muted">than last week</small>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--/ Card Border Shadow -->
+            
+            <!-- Users List Table -->
+            <div class="card">
+              <div class="card-header">
+                <h5 class="card-title">Search Filter</h5>
+                <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
+                  <div class="col-md-4 user_role"></div>
+                  <div class="col-md-4 user_plan"></div>
+                  <div class="col-md-4 user_status"></div>
+                </div>
+              </div>
+              <div class="card-datatable table-responsive pt-0">
+                <table class="datatables-basic table table-bordered">
+                  <thead>
+                    <tr>
+                     
+                      <th>DISTRICT_N</th>
+                      <th>DPT_NAM</th>
+                      <th>LAT_WGS84</th>
+                      <th>LOCALITY_N</th>
+                      <th>LON_WGS84</th>
+                      <th>REGION_NAM</th>
+                      <th>SUBDPT_NAM</th>
+                      
+                    </tr>
+                  </thead>
+                 
+                </table>
+               <!-- <table class="datatables-basic table table-bordered">
+                  <thead>
+                    <tr>
+                     
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Date</th>
+                      <th>Salary</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                 
+                </table>-->
+              </div>
+            
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Pricing Modal -->
+

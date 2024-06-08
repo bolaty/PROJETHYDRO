@@ -1,0 +1,594 @@
+ <div class="content-wrapper">
+      <!-- Content -->
+
+      <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="py-3 mb-4"><span class="fw-light">Consultation /</span> Exportation</h4>
+
+        <div class="row g-4">
+          <!-- Navigation -->
+          <div class="col-12 col-lg-3">
+            <div class="d-flex justify-content-between flex-column mb-3 mb-md-0">
+                <div class="card mb-4">
+                    <br>
+                    <ul class="nav nav-align-left nav-pills flex-column">
+                        <li class="nav-item mb-2" *ngFor="let objet of tableauObjets; let i = index" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 12px;">
+                            <p class="nav-link  elemclic{{i}}" href="#">
+                              <input
+                                name="customRadioTemp1"
+                                class="form-check-input-1"
+                                type="radio"
+                                [value]="objet.valeur"
+                                [id]="'customRadioTemp1'"
+                                (click)="SelectInvoice(i,objet)"
+                              />&nbsp;&nbsp;
+                              <span class="align-middle">{{ objet.libelle }}</span>
+                            </p>
+                          </li>
+                       
+                      </ul>
+
+                </div>
+              
+            </div>
+          </div>
+          <!-- /Navigation -->
+          <!-- Options -->
+          <div class="col-12 col-lg-9 pt-4 pt-lg-0">
+            <div class="tab-content p-0">
+              <!-- Payments Tab -->
+              <div class="tab-pane fade show active" id="payments" role="tabpanel">
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <h5 class="card-title m-0">Information sur {{ elmtsTab?.libelle }}</h5>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      il s'agit des details sur les {{ elmtsTab?.libelle }}
+                    </p>
+                   <!-- <button
+                      class="btn btn-outline-primary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#paymentProvider">
+                      Choose a provider
+                    </button>-->
+                  </div>
+                </div>
+                <div class="card mb-4">
+                  <div class="card-header">
+                    <div class="card-title m-0">
+                      <h5 class="mb-1">Tableau {{ elmtsTab?.libelle }}</h5>
+                      <p class="text-body mb-0">Consultation des details
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h6 class="mb-4">Default</h6>
+                    <div class="bg-lightest p-3 rounded-3 mb-4">
+                        <div >
+                            <div class="card-header">
+                              <h5 class="card-title">Search Filter</h5>
+                              <div class="d-flex justify-content-between align-items-center row py-3 gap-3 gap-md-0">
+                                <div class="col-md-4 user_role"></div>
+                                <div class="col-md-4 user_plan"></div>
+                                <div class="col-md-4 user_status"></div>
+                              </div>
+                            </div>
+                            <div class="card-datatable table-responsive pt-0">
+                              <table class="datatables-basic table table-bordered">
+                                <thead>
+                                  <tr *ngIf="statForm">
+                                    <th *ngFor="let objet of tabform; let i = index">{{objet.data}}</th>
+                                  </tr>
+                                </thead>
+                               
+                              </table>
+                             <!-- <table class="datatables-basic table table-bordered">
+                                <thead>
+                                  <tr>
+                                   
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Date</th>
+                                    <th>Salary</th>
+                                    <th>Status</th>
+                                  </tr>
+                                </thead>
+                               
+                              </table>-->
+                            </div>
+                          
+                          </div>
+                    </div>
+                    <button
+                      *ngIf="stattabformselect"
+                      class="btn btn-outline-primary"
+                      (click)="telechargerJSON()">
+                      FICHIER SOURCE
+                    </button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <!-- /Options-->
+        </div>
+
+        <!-- Payment provider modal -->
+        <div class="modal fade" id="paymentProvider" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-simple modal-enable-otp modal-dialog-centered">
+            <div class="modal-content p-3 p-md-5">
+              <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4">
+                  <h3 class="mb-3">Select payment providers</h3>
+                  <p class="text-muted">Third-party payment providers</p>
+                </div>
+
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0 me-5">Adyen</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">2Checkout</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Airpay</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Authorize.net</h6>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Bambora</h6>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Cayan</h6>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3 mb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Chase Paymentech (Orbital)</h6>
+
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                  </div>
+                </div>
+                <div
+                  class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-between border-bottom pb-3">
+                  <h6 class="m-0 mb-2 mb-sm-0">Checkout.com</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / Payment provider modal -->
+
+        <!-- Payment Methods modal -->
+        <div class="modal fade" id="paymentMethods" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-simple modal-enable-otp modal-dialog-centered">
+            <div class="modal-content p-3 p-md-5">
+              <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="text-center mb-4">
+                  <h3 class="mb-3">Select payment methods</h3>
+                  <p class="text-muted">Supported payment methods</p>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                  <div class="d-flex gap-2 align-items-center">
+                    <img
+                      src="../../assets/img/icons/payments/visa-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="visa-card"
+                      data-app-light-img="icons/payments/visa-light.png"
+                      data-app-dark-img="icons/payments/visa-dark.png" />
+
+                    <h6 class="m-0">Visa</h6>
+                  </div>
+                  <h6 class="m-0 d-none d-sm-block">Credit Card</h6>
+                </div>
+                <div class="d-flex justify-content-sm-between align-items-center border-bottom pb-3 mb-3">
+                  <div class="d-flex gap-2 align-items-center">
+                    <img
+                      src="../../assets/img/icons/payments/ae-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="american-express-card"
+                      data-app-light-img="icons/payments/ae-light.png"
+                      data-app-dark-img="icons/payments/ae-dark.png" />
+
+                    <h6 class="m-0">American Express</h6>
+                  </div>
+                  <h6 class="m-0 d-none d-sm-block">Credit Card</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                  <div class="d-flex gap-2 align-items-center">
+                    <img
+                      src="../../assets/img/icons/payments/master-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="master-card"
+                      data-app-light-img="icons/payments/master-light.png"
+                      data-app-dark-img="icons/payments/master-dark.png" />
+
+                    <h6 class="m-0">Mastercard</h6>
+                  </div>
+                  <h6 class="m-0 d-none d-sm-block">Credit Card</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
+                  <div class="d-flex gap-2 align-items-center">
+                    <img
+                      src="../../assets/img/icons/payments/jcb-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="jcb-card"
+                      data-app-light-img="icons/payments/jcb-light.png"
+                      data-app-dark-img="icons/payments/jcb-dark.png" />
+                    <h6 class="m-0">JCB</h6>
+                  </div>
+                  <h6 class="m-0 d-none d-sm-block">Credit Card</h6>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                  <div class="d-flex gap-2 align-items-center">
+                    <img
+                      src="../../assets/img/icons/payments/dc-light.png"
+                      class="img-fluid w-px-50 h-px-30"
+                      alt="diners-club-card"
+                      data-app-light-img="icons/payments/dc-light.png"
+                      data-app-dark-img="icons/payments/dc-dark.png" />
+                    <h6 class="m-0">Diners Club</h6>
+                  </div>
+                  <h6 class="m-0 d-none d-sm-block">Credit Card</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- / Payment Methods modal -->
+      </div>
+      <!-- / Content -->
+
+           <!-- Real customers reviews: Start -->
+     <section id="landingReviews" class="section-py bg-body landing-reviews pb-0">
+        <div class="container">
+          <h6 class="text-center fw-semibold d-flex justify-content-center align-items-center mb-4">
+            <img
+              src="../../assets/img/front-pages/icons/section-tilte-icon.png"
+              alt="section title icon"
+              class="me-2" />
+            <span class="text-uppercase">Nos Partenaires</span>
+          </h6>
+          <h3 class="text-center mb-2"><span class="fw-bold">des acteurs clés de notre réussite,</span> jouent un rôle essentiel dans notre parcours</h3>
+          <p class="text-center fw-medium mb-3 mb-md-5">Leur expertise, leur engagement et leur soutien constant sont les piliers de notre travail. Nous sommes fiers de collaborer avec ces partenaires de confiance, qui partagent notre vision et notre passion. Découvrez qui ils sont et comment ils contribuent à notre succès.</p>
+        </div>
+      
+        <hr class="m-0" />
+        <div class="container">
+          <div class="swiper-logo-carousel py-4 my-lg-2">
+            <div class="swiper" id="swiper-clients-logos">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img
+                    src="../../assets/img/front-pages/branding/2.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/2.png"
+                    data-app-dark-img="front-pages/branding/2.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/3.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/3.png"
+                    data-app-dark-img="front-pages/branding/3.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/4.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/4.png"
+                    data-app-dark-img="front-pages/branding/4.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/5.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/5.png"
+                    data-app-dark-img="front-pages/branding/5.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/6.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/6.png"
+                    data-app-dark-img="front-pages/branding/6.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/7.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/7.png"
+                    data-app-dark-img="front-pages/branding/7.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/8.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/8.png"
+                    data-app-dark-img="front-pages/branding/8.png" />
+  
+                    <img
+                    src="../../assets/img/front-pages/branding/9.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/9.png"
+                    data-app-dark-img="front-pages/branding/9.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/10.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/10.png"
+                    data-app-dark-img="front-pages/branding/10.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/11.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/11.png"
+                    data-app-dark-img="front-pages/branding/11.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/12.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/12.png"
+                    data-app-dark-img="front-pages/branding/12.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/13.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/13.png"
+                    data-app-dark-img="front-pages/branding/13.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/14.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/14.png"
+                    data-app-dark-img="front-pages/branding/14.png" />
+                    <img
+                    src="../../assets/img/front-pages/branding/15.png"
+                    alt="client logo"
+                    class="client-logo"
+                    width="200px"
+                    height="200px"
+                    data-app-light-img="front-pages/branding/15.png"
+                    data-app-dark-img="front-pages/branding/15.png" />
+                </div>
+           
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Real customers reviews: End -->
+
+      
+
+      <div class="content-backdrop fade"></div>
+    </div>

@@ -1,0 +1,20 @@
+.title2{
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    h3{
+      font-weight: bold;
+    }
+    p{
+      font-size: 12px;
+      color: #118a44;
+      &.msg{
+        color: initial;
+        text-align: initial;
+        font-weight: bold;
+      }
+    }
+  }
+
+  
